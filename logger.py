@@ -13,8 +13,8 @@ def setup_logger(name: str) -> logging.Logger:
             logger - connects the tool to the file so information from the file can be writen to it
     """
 
-    log_dir = Path("logs")
-    log_dir.mkdir(exist_ok=True)
+    log_dir = Path(__file__).resolve().parent / "logs"
+    log_dir.mkdir(parents=True, exist_ok=True)
 
     logger = logging.getLogger(name)
     logger.setLevel(logging.INFO)
